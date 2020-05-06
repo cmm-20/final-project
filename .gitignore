@@ -1,0 +1,19 @@
+build
+CMakeLists.txt.user
+.DS_Store
+data/out
+ext/cache
+
+# imgui
+*.ini
+
+# clion 
+.idea/
+cmake-build-[Dd]ebug/
+cmake-build-[Rr]elease/
+
+# vscode
+.vscode
+
+# clang
+clang
