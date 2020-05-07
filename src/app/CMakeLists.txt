@@ -50,5 +50,3 @@ target_compile_definitions(
     PRIVATE
     CRL_DATA_FOLDER=${CRL_DATA_FOLDER}
 )
-
-set_property(TARGET ${PROJECT_NAME} PROPERTY FOLDER "Apps") #For solution explorer in visual studios
