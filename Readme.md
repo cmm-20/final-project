@@ -5,7 +5,7 @@ We recommend to first watch the [video](http://crl.ethz.ch/teaching/computationa
 ## Resources:
 
 - Presentation: [video](http://crl.ethz.ch/teaching/computational-motion-20/videos/FinalProject.mp4), [pptx](http://crl.ethz.ch/teaching/computational-motion-20/slides/FinalProject.pptx), [pdf](http://crl.ethz.ch/teaching/computational-motion-20/slides/FinalProject.pdf)
-- [Starter code](https://github.com/cmm-20/final-project)
+- [Github classroom invitation link](https://classroom.github.com/g/6I-s5EfW)
 - [Github Wiki](https://github.com/cmm-20/final-project/wiki)
 - [Github issues](https://github.com/cmm-20/final-project/issues)
 
