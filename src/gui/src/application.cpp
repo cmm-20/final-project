@@ -62,12 +62,16 @@ void Application::init(const char *title, int width, int height, std::string ico
 #endif
 
     // get pixel ratio and adjust width/height
-    pixelRatio = get_pixel_ratio();
-    this->width = width;
-    this->height = height;
+	pixelRatio = get_pixel_ratio();
+	this->width = width;
+	this->height = height;
+#ifdef RETINA_SCREEN
+	this->width *= 2;
+	this->height *= 2;
+#endif
 
     // glfw window creation
-    window = glfwCreateWindow(this->width, this->height, title, nullptr, nullptr);
+	window = glfwCreateWindow(this->width, this->height, title, nullptr, nullptr);
     if (window == nullptr)
     {
         glfwTerminate();
@@ -135,7 +139,7 @@ Application::Application(const char *title, std::string iconPath) {
     int borderLeft = 0;
     int borderTop = 42;
     int borderRight = 0;
-    int borderBottom = 60;
+	int borderBottom = 0;
 #else
     int borderLeft = 2;
     int borderTop = 70;
@@ -313,19 +317,25 @@ void Application::drawConsole(){
     if (showConsole == false)
         return;
 
+	int widthForImGui = width;
+	int heightForImGui = height;
+#ifdef RETINA_SCREEN
+	widthForImGui /= 2;
+	heightForImGui /= 2;
+#endif
     if (automanageConsole == false){
-        ImGui::SetNextWindowSize(ImVec2(this->width, pixelRatio * 335), ImGuiCond_Once);
-        ImGui::SetNextWindowPos(ImVec2(0, this->height - pixelRatio * 350), ImGuiCond_Once);
+		ImGui::SetNextWindowSize(ImVec2(widthForImGui, pixelRatio * 335), ImGuiCond_Once);
+		ImGui::SetNextWindowPos(ImVec2(0, heightForImGui - pixelRatio * 350), ImGuiCond_Once);
     }
     ImGui::Begin("Console");
     if (automanageConsole == true){
         if (ImGui::IsWindowCollapsed()){
-            ImGui::SetWindowPos(ImVec2(this->width - pixelRatio * 300, this->height - pixelRatio * 20), ImGuiCond_Always);
+			ImGui::SetWindowPos(ImVec2(widthForImGui - pixelRatio * 300, this->height - pixelRatio * 20), ImGuiCond_Always);
             ImGui::SetWindowSize(ImVec2(pixelRatio * 300, pixelRatio * 80), ImGuiCond_Always);
         }
         else {
-            ImGui::SetWindowPos(ImVec2(0, this->height - pixelRatio * consoleHeight), ImGuiCond_Always);
-            ImGui::SetWindowSize(ImVec2(this->width, pixelRatio * consoleHeight), ImGuiCond_Always);
+			ImGui::SetWindowPos(ImVec2(0, heightForImGui - pixelRatio * consoleHeight), ImGuiCond_Always);
+			ImGui::SetWindowSize(ImVec2(widthForImGui, pixelRatio * consoleHeight), ImGuiCond_Always);
         }
     }
 
@@ -339,11 +349,6 @@ void Application::drawConsole(){
 void Application::resizeWindow(int width, int height) {
     this->width = width;
     this->height = height;
-
-#ifdef RETINA_SCREEN
-    this->width /= 2.0;
-    this->height /= 2.0;
-#endif
 
     glViewport(0, 0, width, height);
 }
