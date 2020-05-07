@@ -19,3 +19,14 @@ team members and stretch goals you are considering.
 	+ Code
 	+ 5 minute video presentation summarizing the features that were tackled, what worked and what didn’t, as well as results. Send us both the pptx file, and the video recording.
 	+ Upload the code, video and presentation to your Github repository. Alternatively, you can put a link to the video and presentation is this Readme.
+
+## Team Members
+
+Please fill in the details of all team members. *Projects can be done individually or in teams (up to 3).*
+
+| Legi Number | First Name | Last Name | github username |
+| ----------- | ---------- | --------- | --------------- |
+| xx-xxx-xxx  |            |           |                 |
+|             |            |           |                 |
+|             |            |           |                 |
+
